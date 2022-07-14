@@ -1,0 +1,29 @@
+.chatroom {
+	align-items: center;
+	justify-content: center;
+}
+
+.loginHeading {
+	text-align: center;
+	padding: 3rem;
+}
+
+.loginButton {
+	padding: 1rem 2rem;
+	border-radius: var(--primary-border-radius);
+	background-color: var(--other-chat-color);
+	color: var(--primary-text-color);
+	font-size: 1.05rem;
+	font-weight: 500;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginButton img {
+	width: 25px;
+	margin-right: 0.5rem;
+}
