@@ -1,0 +1,24 @@
+.message-input-container {
+	display: flex;
+	gap: 4px;
+}
+
+.message-input {
+	padding: 0.75rem 0.5rem;
+	flex: 1;
+	background: var(--secondary-color);
+	border-radius: var(--primary-border-radius);
+	color: var(--primary-text-color);
+	outline: none;
+	border: 1px solid var(--primary-text-color);
+}
+
+.send-message {
+	padding: 0.75rem 2rem;
+	background: var(--secondary-color);
+	color: var(--primary-text-color);
+	border-radius: var(--primary-border-radius);
+	cursor: pointer;
+	outline: none;
+	border: 1px solid var(--primary-text-color);
+}

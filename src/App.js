@@ -1,5 +1,5 @@
-import { AuthenticatedApp } from './components/authenticatedApp/indexAuth';
-import { UnauthenticatedApp } from './components/unauthenticatedApp/indexUnauth';
+import { AuthenticatedApp } from './components/AuthenticatedApp/AuthenticatedApp';
+import { UnauthenticatedApp } from './components/UnauthenticatedApp/UnauthenticatedApp';
 import { useAuth } from './hook/useAuth';
 import './App.css';
 

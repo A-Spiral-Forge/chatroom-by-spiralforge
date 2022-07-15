@@ -1,6 +1,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
+import {
+	getFirestore,
+	collection,
+	addDoc,
+	serverTimestamp,
+	onSnapshot,
+	query,
+	orderBy,
+} from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_apiKey,
@@ -12,10 +21,9 @@ const firebaseConfig = {
 	measurementId: process.env.REACT_APP_measurementId,
 };
 
-console.log(firebaseConfig);
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 async function loginWithGoogle() {
 	try {
@@ -34,4 +42,33 @@ async function loginWithGoogle() {
 	}
 }
 
-export { loginWithGoogle };
+async function sendMessage(roomId, user, text) {
+	try {
+		await addDoc(collection(db, 'room', roomId, 'messages'), {
+			uid: user.uid,
+			displayName: user.displayName,
+			text: text.trim(),
+			timestamp: serverTimestamp(),
+		});
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+function getMessages(roomId, callback) {
+	return onSnapshot(
+		query(
+			collection(db, 'room', roomId, 'messages'),
+			orderBy('timestamp', 'asc')
+		),
+		(querySnapshot) => {
+			const messages = querySnapshot.docs.map((doc) => ({
+				id: doc.id,
+				...doc.data(),
+			}));
+			callback(messages);
+		}
+	);
+}
+
+export { loginWithGoogle, sendMessage, getMessages };

@@ -1,5 +1,5 @@
 import { useAuth } from '../../hook/useAuth';
-import './styleUnauth.css';
+import './UnauthenticatedApp.css';
 
 function UnauthenticatedApp() {
 	const { login } = useAuth();

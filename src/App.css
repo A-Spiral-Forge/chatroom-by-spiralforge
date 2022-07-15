@@ -6,12 +6,24 @@
 
 :root {
 	--primary-color: #1d1f2b;
-	--other-chat-color: #303346;
+	--secondary-color: #303346;
+	--other-chat-color: var(--secondary-color);
 	--user-chat-color: #6686fd;
 	--primary-text-color: #ffffff;
-	--border-color: blue;
-	--primary-border: 1px solid var(--border-color);
-	--primary-border-radius: 15px;
+	--primary-border: 1px solid var(--primary-color);
+	--primary-border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	border: var(--primary-border);
+	background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+	width: 5px;
+	margin: 1px;
+	background-color: var(--secondary-color);
 }
 
 html,
@@ -22,7 +34,7 @@ body {
 }
 
 body {
-	background-color: var(--other-chat-color);
+	background-color: var(--secondary-color);
 	color: var(--primary-text-color);
 }
 
@@ -45,7 +57,7 @@ h4 {
 	margin-top: 2rem;
 	height: 90%;
 	background-color: var(--primary-color);
-	padding: 2rem;
+	padding: 1rem 2rem;
 	border-radius: var(--primary-border-radius);
 
 	/* display properties */

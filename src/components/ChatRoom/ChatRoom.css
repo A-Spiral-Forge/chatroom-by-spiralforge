@@ -1,0 +1,16 @@
+.messages-container {
+	width: 100%;
+	margin-top: 1rem;
+	padding: 1rem;
+	flex-grow: 1;
+	border: 1px solid var(--primary-text-color);
+	border-radius: var(--primary-border-radius);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.backLink a {
+	color: var(--primary-text-color);
+	text-decoration: none;
+}
